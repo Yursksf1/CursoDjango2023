@@ -22,3 +22,16 @@ class Pet(models.Model):
 
     def __str__(self) -> str:
         return "{} - {}".format(self.name, self.person)
+    
+
+"""
+Actividad:
+1) Crear una tabla para las especies de las mascotas (PET)
+    Ejemplo una mascota puede ser, un perro, o un gato, o un ave.. 
+    esta tabla debe contener el nombre de la especie, y 
+    debe existir una relacion entre una mascota y la especie a la que pertenece. 
+
+2) Crear otra tabla que guarde las "notas u observaciones" de las mascotas Ejemplo:
+    flofy: tiene una nota medica, que dice que no puede correr a medio dia
+    canariam, tiene una observacion, que recomienda darle una comida especial..
+"""
