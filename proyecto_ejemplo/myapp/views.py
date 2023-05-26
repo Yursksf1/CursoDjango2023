@@ -1,16 +1,27 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
+from myapp.models import Person
+
 
 # Create your views here.
+def index(request):
+    print('estoy llamando al index')
+    personas = Person.objects.all() # select * from personas 
+    lista_personas = []
+    for persona in personas:
+        nombre_persona = "{} {}".format(persona.first_name, persona.last_name)
+        lista_personas.append(nombre_persona)
 
-age = 25
+    texto_respuesta =  """
+        <h1> Hola mundo desde HttpResponse </h1>
+        {}
 
-age = "25; mi otra consulata SQL"
+    """.format(lista_personas)
 
-sql = '''
-    SELECT *
-    FROM myapp_person
-    WHERE age={}
-    Limit 1;
-'''.format(age)
+    return HttpResponse(texto_respuesta)
 
-person = Person.objects.filter(age=age).first()
+
+# Create your views here.
+def index_2(request):
+    print('estoy llamando al index 2')
+    template_name = 'myapp/index.html'
+    return render(request, template_name)
