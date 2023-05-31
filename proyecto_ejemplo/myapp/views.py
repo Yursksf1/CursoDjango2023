@@ -24,4 +24,21 @@ def index(request):
 def index_2(request):
     print('estoy llamando al index 2')
     template_name = 'myapp/index.html'
-    return render(request, template_name)
+    context = {
+        "some_text": "hola mundo desde la vista de django"
+    }
+    return render(request, template_name, context)
+
+
+def lista_personas(request):
+    template_name = 'myapp/personas_list.html'
+    personas = Person.objects.all() # select * from personas 
+    lista_personas = []
+    for persona in personas:
+        nombre_persona = "{} {}".format(persona.first_name, persona.last_name)
+        lista_personas.append(nombre_persona)
+
+    context = {
+        "lista_personas": lista_personas
+    }
+    return render(request, template_name, context)
