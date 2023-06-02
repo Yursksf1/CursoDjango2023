@@ -23,6 +23,8 @@ urlpatterns = [
     path('', views.index),
     path('home', views.index_2),
     path('lista_personas', views.lista_personas),
+    path('lista_pet', views.lista_pet),
+    path('lista_personas_json', views.lista_personas_json),
     # path('lista_raza', views.lista_personas),
     path('personas/<int:id>', views.detalle_persona),
     path('razas/<str:raza_name>', views.detalle_raza),

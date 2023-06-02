@@ -1,5 +1,7 @@
 from django.shortcuts import render, HttpResponse
-from myapp.models import Person
+from django.http import JsonResponse
+
+from myapp.models import Person, Pet
 
 
 # Create your views here.
@@ -31,7 +33,7 @@ def index_2(request):
 
 
 def lista_personas(request):
-    template_name = 'myapp/personas_list.html'
+    template_name = 'myapp/base.html'
     personas = Person.objects.all() # select * from personas 
     lista_personas = []
     for persona in personas:
@@ -40,6 +42,19 @@ def lista_personas(request):
 
     context = {
         "lista_personas": lista_personas
+    }
+    return render(request, template_name, context)
+
+def lista_pet(request):
+    template_name = 'myapp/pet_list.html'
+    pets = Pet.objects.all() # select * from pet 
+    lista_pet = []
+    for pet in pets:
+        nombre_pet= "{}".format(pet.name)
+        lista_pet.append(nombre_pet)
+
+    context = {
+        "lista_pet": lista_pet
     }
     return render(request, template_name, context)
 
@@ -65,6 +80,19 @@ def detalle_raza(request, raza_name):
 
     return HttpResponse(texto_respuesta)
 
+
+def lista_personas_json(request):
+    personas = Person.objects.all() # select * from personas 
+    lista_personas = []
+    for persona in personas:
+        nombre_persona = "{} {}".format(persona.first_name, persona.last_name)
+        lista_personas.append(nombre_persona)
+
+    context = {
+        "lista_personas": lista_personas
+    }
+
+    return JsonResponse(context)
 
 ## Actividad:
 # 1) Realizar el enrutamiento dinamico para las mascotas,
