@@ -33,7 +33,7 @@ def index_2(request):
 
 
 def lista_personas(request):
-    template_name = 'myapp/base.html'
+    template_name = 'myapp/personas_list.html'
     personas = Person.objects.all() # select * from personas 
     lista_personas = []
     for persona in personas:
@@ -97,3 +97,14 @@ def lista_personas_json(request):
 ## Actividad:
 # 1) Realizar el enrutamiento dinamico para las mascotas,
 # 2) Realizar el enrutamiento dinamico para las razas de las mascotas,
+
+# 3) implementar la funcionalidad de las urls dinamicas: 
+#
+#    path('mascota/<int:id>', views.your_custom_view),
+#    path('mascota/<int:id>/nota_medica', views.your_custom_view),
+#
+#   que deben visualiza la informacion correspondiente de las mascotas y sus notas medicas respectivamente
+#   Deben hacer uso de la herencia de templates 
+#   
+# 4) agregar una nota por defecto en todas las visualizaciones de la vista #2 (la de las notas) que contenga
+#    las recomendaciones generales basicas de un paciente. --> "estar pendiente a los cambios de temperatura, mantener hidratado etc etc "

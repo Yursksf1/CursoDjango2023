@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1> listado personas </h1>
+{% extends 'base.html' %}
+{% block title %} Listado Personas{% endblock %}
+{% block title_content %}
+Personas
+{% endblock %}
+
+{% block content %} 
     <ul>
         {% for persona in lista_personas %}
         <li>
@@ -15,5 +12,4 @@
         </li>
         {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock %}

@@ -28,6 +28,7 @@ urlpatterns = [
     # path('lista_raza', views.lista_personas),
     path('personas/<int:id>', views.detalle_persona),
     path('razas/<str:raza_name>', views.detalle_raza),
+    path('mascota/<int:id>/nota_medica', views.your_custom_view),
 
 
 
