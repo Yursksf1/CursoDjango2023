@@ -42,3 +42,25 @@ def lista_personas(request):
         "lista_personas": lista_personas
     }
     return render(request, template_name, context)
+
+def detalle_persona(request, id):
+    persona = Person.objects.filter(id=id).first() # select * from personas where id=1
+    if persona:
+        texto_respuesta =  """
+            <h1> voy a buscar la persona con el id: {} </h1>
+            <p> nombre: {} </p>
+            <p> edad: {} </p>
+            <p> nick_name: {} </p>
+        """.format(id, persona.first_name, persona.age, persona.nick_name )
+    else:
+        texto_respuesta = """No se encuentra el registro con id: {}""".format(id)
+
+    return HttpResponse(texto_respuesta)
+
+
+def detalle_raza(request, raza_name):
+    texto_respuesta =  """
+        <h1> voy a buscar la informacion de la raza: {} </h1>
+    """.format(raza_name)
+
+    return HttpResponse(texto_respuesta)

@@ -22,7 +22,10 @@ app_name = "app"
 urlpatterns = [
     path('', views.index),
     path('home', views.index_2),
-    path('listar_personas', views.lista_personas),
+    path('lista_personas', views.lista_personas),
+    # path('lista_raza', views.lista_personas),
+    path('personas/<int:id>', views.detalle_persona),
+    path('razas/<str:raza_name>', views.detalle_raza),
 
 
 
