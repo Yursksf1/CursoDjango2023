@@ -64,3 +64,8 @@ def detalle_raza(request, raza_name):
     """.format(raza_name)
 
     return HttpResponse(texto_respuesta)
+
+
+## Actividad:
+# 1) Realizar el enrutamiento dinamico para las mascotas,
+# 2) Realizar el enrutamiento dinamico para las razas de las mascotas,
