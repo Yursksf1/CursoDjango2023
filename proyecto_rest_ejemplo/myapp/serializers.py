@@ -7,6 +7,8 @@ class EspecieSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class MascotaSerializer(serializers.ModelSerializer):
+    # especie = EspecieSerializer()
+
     class Meta:
         model = Mascota
         fields = '__all__'
